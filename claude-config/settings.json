@@ -1,0 +1,106 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(diskutil list external)",
+      "Bash(diskutil info disk4s1)",
+      "Read(//Volumes/**)",
+      "WebFetch(domain:www.calottery.com)",
+      "WebFetch(domain:en.lottolyzer.com)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//opt/**)",
+      "Bash(tmutil destinationinfo)",
+      "Bash(git init)",
+      "Bash(git commit --allow-empty -m \"Phase 1 start — project structure created\")",
+      "Bash(curl -s -X POST \"https://api.telegram.org/bot8349977113:AAHBcX5_jBe-hHg1UJWmXbncJYV_tF6phWs/sendMessage\" -d chat_id=8557906761 -d text=\"🤖 Aquarius Agent is online. Connection test successful.\")",
+      "Bash(python3 -c \"import sys,json; r=json.load\\(sys.stdin\\); print\\(''✅ Message sent!'' if r[''ok''] else f''❌ Failed: {r}''\\)\")",
+      "Bash(npm config set prefix ~/.npm-global)",
+      "Bash(export PATH=~/.npm-global/bin:$PATH)",
+      "Bash(npm i -g openclaw)",
+      "Bash(~/.zprofile)",
+      "Bash(osascript -e 'tell application \"\"Terminal\"\" to do script \"\"export PATH=~/.npm-global/bin:$PATH && cd /Users/throttle/support_agent && openclaw onboard\"\"' -e 'tell application \"\"Terminal\"\" to activate')",
+      "Bash(curl -s http://localhost:5000/api/status)",
+      "Bash(curl -s http://localhost:5000/api/logs)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f''{len\\(d[\"\"lines\"\"]\\)} log lines loaded''\\)\")",
+      "Bash(lsof -i :5000)",
+      "Bash(curl -s --max-time 5 http://127.0.0.1:5000/api/status)",
+      "Bash(open http://127.0.0.1:5000)",
+      "Bash(pip3 install requests -q)",
+      "Bash(python3 -c \":*)",
+      "Bash(launchctl unload ~/Library/LaunchAgents/com.throttle.telegramagent.plist)",
+      "Bash(launchctl load ~/Library/LaunchAgents/com.throttle.telegramagent.plist)",
+      "Read(//Users/throttle/**)",
+      "Bash(pgrep -a -f \"dashboard/app.py\")",
+      "Bash(kill 46691 47515)",
+      "Bash(curl -s http://localhost:5000/api/agent-tier)",
+      "Bash(curl -sv http://localhost:5000/api/agent-tier)",
+      "Bash(lsof -iTCP -sTCP:LISTEN)",
+      "Bash(lsof -nP -iTCP:5000)",
+      "Bash(curl -s http://127.0.0.1:5000/api/agent-tier)",
+      "Bash(curl -s -X POST http://127.0.0.1:5000/api/agent-tier -H \"Content-Type: application/json\" -d '{\"\"tier\"\": 3}')",
+      "Bash(pkill -f \"dashboard/app.py\")",
+      "Bash(launchctl load ~/Library/LaunchAgents/com.throttle.dashboard.plist)",
+      "Bash(launchctl list)",
+      "Bash(curl -s http://127.0.0.1:5000/api/status)",
+      "Bash(open /Users/throttle/support_agent/dashboard/layout_preview.html)",
+      "Bash(launchctl stop com.throttle.dashboard)",
+      "Bash(launchctl start com.throttle.dashboard)",
+      "Bash(curl -s http://localhost:5000/api/memory-stats)",
+      "Bash(curl -sv http://localhost:5000/api/memory-stats)",
+      "Bash(curl -s --ipv4 http://127.0.0.1:5000/api/memory-stats)",
+      "Bash(launchctl load ~/Library/LaunchAgents/com.throttle.fantasy5fetcher.plist)",
+      "Bash(openclaw channels status)",
+      "Bash(openclaw models scan)",
+      "Bash(/Users/throttle/.npm-global/bin/openclaw system --help)",
+      "Bash(/Users/throttle/.npm-global/bin/openclaw system heartbeat --help)",
+      "Bash(/Users/throttle/.npm-global/bin/openclaw system heartbeat enable --help)",
+      "Read(//Library/Frameworks/Python.framework/Versions/3.14/bin/**)",
+      "Read(//dev/**)",
+      "Bash(openclaw skill --help)",
+      "Bash(openclaw skills --help)",
+      "Bash(export GOG_KEYRING_PASSWORD=gog-joy-key)",
+      "Bash(/opt/homebrew/bin/gog auth list)",
+      "Read(//Users/troublle/.openclaw/agents/main/sessions/**)",
+      "mcp__google-sheets__sheets_get_values",
+      "Bash(curl -s \"https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/LICENSE\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/.github/ISSUE_TEMPLATE/skill-request.yml\")",
+      "Bash(gog auth:*)",
+      "Bash(gh api:*)",
+      "Bash(find /Users/throttle/Library/LaunchAgents -name \"*.plist\" 2>/dev/null; find /Library/LaunchAgents -name \"com.throttle*\" 2>/dev/null)",
+      "Read(//Library/LaunchAgents/**)",
+      "Bash(/Users/throttle/automation/venv/bin/python3 -c \"import requests; print\\('venv requests:', requests.__version__\\)\")"
+    ],
+    "additionalDirectories": [
+      "/Volumes/Elements/Claude Backup",
+      "/Volumes/T7"
+    ]
+  },
+  "enabledPlugins": {},
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/throttle/automation/programmatic_alert.py"
+          },
+          {
+            "type": "command",
+            "command": "/usr/local/bin/node /Users/throttle/.claude/hooks/before-shell-execution.js"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/node /Users/throttle/.claude/hooks/before-submit-prompt.js"
+          }
+        ]
+      }
+    ]
+  }
+}
